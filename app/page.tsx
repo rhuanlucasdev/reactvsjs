@@ -1,65 +1,245 @@
-import Image from "next/image";
+"use client";
+import { useState, type CSSProperties } from "react";
+
+const frameworks = [
+  {
+    title: "React.JS",
+    logo: "/react-logo-xs.png",
+    alt: "React Logo",
+    description: "usando a biblioteca React para renderizar UI",
+
+    theme: {
+      background: "#181c1f",
+      surface: "#282f33",
+      surfaceLight: "#2d3942",
+      primary: "#48d9f3",
+      primaryLight: "#82c2ce",
+      text: "#e0eff1",
+      textSoft: "#bdd1d4",
+    },
+
+    tabs: [
+      {
+        title: "Porque React?",
+        content: [
+          "O React é extremamente popular",
+          "Ele torna a criação de interfaces complexas e interativas muito mais fácil",
+          "É poderoso e flexível",
+          "Possui um ecossistema muito ativo e versátil",
+        ],
+      },
+
+      {
+        title: "Conceitos Fundamentais",
+        content: [
+          "Componentes, JSX e Props",
+          "Estado",
+          "Hooks (ex: useEffect())",
+          "Renderização dinâmica",
+        ],
+      },
+
+      {
+        title: "Recursos e Ecossistema",
+        content: [
+          "Página oficial (react.dev)",
+          "Next.js (framework fullstack)",
+          "React Native (crie aplicativos mobile nativos com React)",
+        ],
+      },
+
+      {
+        title: "Programação Declarativa",
+        content: [
+          "JavaScript puro exige programação imperativa",
+          "Programação imperativa: você define todos os passos necessários para alcançar um resultado",
+          "Já o React adota programação declarativa",
+          "Com React, você define o objetivo e o React descobre como chegar lá",
+        ],
+      },
+    ],
+  },
+
+  {
+    title: "Vue.js",
+    logo: "/vue-logo-xs.png",
+    alt: "Vue Logo",
+    description: "usando o framework Vue para renderizar UI",
+
+    theme: {
+      background: "#0f1720",
+      surface: "#1b2a34",
+      surfaceLight: "#243744",
+      primary: "#42b883",
+      primaryLight: "#7ad8af",
+      text: "#ecf8f3",
+      textSoft: "#b7d6cb",
+    },
+
+    tabs: [
+      {
+        title: "Porque Vue?",
+        content: [
+          "O Vue é extremamente popular",
+          "É simples de aprender",
+          "Possui ótima performance",
+          "Tem um ecossistema moderno e flexível",
+        ],
+      },
+
+      {
+        title: "Conceitos Fundamentais",
+        content: [
+          "Componentes",
+          "Diretivas",
+          "Reatividade",
+          "Computed Properties",
+        ],
+      },
+
+      {
+        title: "Recursos e Ecossistema",
+        content: [
+          "Página oficial (vuejs.org)",
+          "Nuxt.js (framework fullstack)",
+          "Pinia (gerenciamento de estado)",
+        ],
+      },
+
+      {
+        title: "Programação Declarativa",
+        content: [
+          "Vue também utiliza programação declarativa",
+          "Você descreve a UI",
+          "O Vue atualiza o DOM automaticamente",
+          "Menos manipulação manual do DOM",
+        ],
+      },
+    ],
+  },
+
+  {
+    title: "Angular",
+    logo: "/angular-logo-xs.png",
+    alt: "Angular Logo",
+    description: "usando o framework Angular para renderizar UI",
+
+    theme: {
+      background: "#111217",
+      surface: "#1d212b",
+      surfaceLight: "#2a3040",
+      primary: "#c3002f",
+      primaryLight: "#ff6b8a",
+      text: "#f5f7fa",
+      textSoft: "#b8c1cc",
+    },
+
+    tabs: [
+      {
+        title: "Porque Angular?",
+        content: [
+          "Angular é um framework completo e robusto",
+          "Ele é mantido pelo Google e tem uma grande comunidade de desenvolvedores",
+          "Oferece uma estrutura sólida para desenvolvimento de aplicações complexas",
+          "Possui uma ampla gama de recursos integrados, como roteamento, formulários e comunicação com APIs",
+        ],
+      },
+
+      {
+        title: "Conceitos Fundamentais",
+        content: [
+          "Componentes e Templates",
+          "Diretivas",
+          "Injeção de Dependência",
+          "RxJS e Programação Reativa",
+        ],
+      },
+
+      {
+        title: "Recursos e Ecossistema",
+        content: [
+          "Página oficial (angular.io)",
+          "Angular Material (biblioteca de componentes UI)",
+          "NgRx (gerenciamento de estado)",
+        ],
+      },
+
+      {
+        title: "Programação Declarativa",
+        content: [
+          "Angular também adota programação declarativa",
+          "Você define a estrutura da UI usando templates",
+          "O Angular cuida da atualização do DOM automaticamente",
+          "Menos manipulação manual do DOM",
+        ],
+      },
+    ],
+  },
+];
 
 export default function Home() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [frameworkAtual, setFrameworkAtual] = useState(0);
+
+  const framework = frameworks[frameworkAtual];
+  const proximoFramework = frameworks[(frameworkAtual + 1) % frameworks.length];
+  const style = {
+    backgroundColor: framework.theme.background,
+    color: framework.theme.textSoft,
+    minHeight: "100vh",
+    padding: "2rem",
+
+    "--color-surface": framework.theme.surface,
+    "--color-surface-light": framework.theme.surfaceLight,
+    "--color-primary": framework.theme.primary,
+    "--color-primary-light": framework.theme.primaryLight,
+    "--color-text": framework.theme.text,
+    "--color-text-soft": framework.theme.textSoft,
+  } as CSSProperties & Record<string, string>;
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div style={style}>
+      <header>
+        <img src={framework.logo} alt={framework.alt} />
+
+        <div>
+          <h1>{framework.title}</h1>
+
+          <p>i.e., {framework.description}</p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </header>
+
+      <div id="tabs">
+        <menu>
+          {framework.tabs.map((tab, index) => (
+            <button
+              key={tab.title}
+              onClick={() => setCurrentIndex(index)}
+              className={index === currentIndex ? "active" : ""}
+            >
+              {tab.title}
+            </button>
+          ))}
+        </menu>
+
+        <div id="tab-content">
+          <ul>
+            {framework.tabs[currentIndex].content.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
         </div>
-      </main>
+
+        <button
+          className="switch-framework"
+          onClick={() => {
+            setFrameworkAtual((prev) => (prev + 1) % frameworks.length);
+            setCurrentIndex(0);
+          }}
+        >
+          Certo, mas agora vamos ver sobre {proximoFramework.title}!
+        </button>
+      </div>
     </div>
   );
 }
