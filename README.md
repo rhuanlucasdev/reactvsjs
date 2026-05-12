@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ⚡ React vs JS Frameworks
 
-## Getting Started
+Uma aplicação web educacional que compara os principais frameworks e bibliotecas JavaScript do mercado: **React.js**, **Vue.js** e **Angular** — construída com Next.js e deployada na Vercel.
 
-First, run the development server:
+🔗 **[Acesse o projeto ao vivo](https://frontend-frameworks-kohl.vercel.app)**
+
+---
+
+## 📖 Sobre o Projeto
+
+Este projeto apresenta uma comparação detalhada entre os três principais frameworks/bibliotecas JavaScript para desenvolvimento frontend, abordando:
+
+- Conceitos fundamentais de cada tecnologia
+- Recursos e ecossistema disponível
+- Programação declarativa
+- Casos de uso e pontos fortes de cada opção
+
+O objetivo é servir como material de referência para desenvolvedores que estão decidindo qual tecnologia adotar em seus projetos.
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+- **[Next.js](https://nextjs.org)** — Framework React com suporte a SSR e App Router
+- **TypeScript** — Tipagem estática para maior segurança e produtividade
+- **CSS** — Estilização
+- **Vercel** — Plataforma de deploy
+
+---
+
+## 🚀 Como Rodar Localmente
+
+**Pré-requisitos:** Node.js 18+ e npm/yarn/pnpm instalados.
 
 ```bash
+# Clone o repositório
+git clone https://github.com/rhuanlucasdev/reactvsjs.git
+cd reactvsjs
+
+# Instale as dependências
+npm install
+
+# Inicie o servidor de desenvolvimento
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse [http://localhost:3000](http://localhost:3000) no seu navegador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📂 Estrutura do Projeto
 
-## Learn More
+```
+reactvsjs/
+├── app/          # Páginas e layouts (Next.js App Router)
+├── public/       # Assets estáticos (imagens, ícones)
+├── next.config.ts
+├── tsconfig.json
+└── package.json
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📦 Scripts Disponíveis
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Comando | Descrição |
+|---|---|
+| `npm run dev` | Inicia o servidor de desenvolvimento |
+| `npm run build` | Gera o build de produção |
+| `npm run start` | Inicia o servidor em modo produção |
+| `npm run lint` | Executa o ESLint no projeto |
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🌐 Deploy
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+O projeto está deployado na **Vercel**. Para fazer seu próprio deploy, clique abaixo:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/rhuanlucasdev/reactvsjs)
+
+---
+
+## 👨‍💻 Autor
+
+Feito por **[rhuanlucasdev](https://github.com/rhuanlucasdev)**
